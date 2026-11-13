@@ -24,29 +24,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Enable Pages if needed
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -e
-          repo="${{ github.repository }}"
-          if gh api "repos/$repo/pages" >/dev/null 2>&1; then
-            echo "GitHub Pages уже включён"
-          else
-            echo "Включаю GitHub Pages (source: GitHub Actions)"
-            gh api --method POST "repos/$repo/pages" \
-              -f build_type=workflow >/dev/null 2>&1 \
-              || echo "::notice title=Включите GitHub Pages вручную::Settings → Pages → Source: GitHub Actions"
-          fi
-
       - name: Setup Pages
+        id: pages
+        continue-on-error: true
         uses: actions/configure-pages@v5
+        with:
+          # Пытаемся включить Pages автоматически (source: GitHub Actions)
+          enablement: true
 
       - name: Upload artifact
+        if: steps.pages.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
       - name: Deploy
         id: deployment
+        if: steps.pages.outcome == 'success'
         uses: actions/deploy-pages@v4
+
+      - name: Подсказка, если Pages выключен
+        if: steps.pages.outcome != 'success'
+        run: |
+          {
+            echo "### Нужен один клик, чтобы включить сайт"
+            echo ""
+            echo "1. Откройте **Settings → Pages**: https://github.com/${{ github.repository }}/settings/pages"
+            echo "2. В разделе **Build and deployment → Source** выберите **GitHub Actions**."
+            echo "3. Запустите этот workflow заново (Actions → Deploy to GitHub Pages → Re-run jobs)."
+            echo ""
+            echo "Сайт появится по адресу: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          } >> "$GITHUB_STEP_SUMMARY"
