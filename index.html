@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Веб-разработчик — портфолио · сайты на HTML, CSS и JavaScript</title>
+  <meta name="description" content="Портфолио веб-разработчика: адаптивные сайты, лендинги и интерфейсы на HTML, CSS и JavaScript. Начинающий специалист, открыт к первым проектам и заказам." />
+  <meta name="author" content="Веб-разработчик" />
+  <meta name="theme-color" content="#08080a" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Веб-разработчик — портфолио" />
+  <meta property="og:description" content="Делаю аккуратные, быстрые и живые сайты на HTML, CSS и JavaScript. Открыт к первым проектам." />
+  <meta property="og:image" content="assets/work-coffee.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23c8ff4d'/%3E%3Cpath d='M9 9h4l3 9 3-9h4l-5 14h-4z' fill='%2308080a'/%3E%3C/svg%3E" />
+
+  <link rel="preload" href="assets/fonts/unbounded-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Прелоадер -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__label">загружаю портфолио</span>
+      <span class="preloader__count" id="preloaderCount">0</span>
+      <div class="preloader__bar"><i id="preloaderBar"></i></div>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <!-- Хедер -->
+  <header class="header" id="header">
+    <a class="logo" href="#hero" aria-label="Веб-разработчик — на главную">
+      <span class="logo__mark">&lt;/&gt;</span>
+      <span class="logo__text">веб-разработчик</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Основная навигация">
+      <a href="#about" class="nav__link"><span>01</span>Обо мне</a>
+      <a href="#skills" class="nav__link"><span>02</span>Навыки</a>
+      <a href="#work" class="nav__link"><span>03</span>Работы</a>
+      <a href="#process" class="nav__link"><span>04</span>Процесс</a>
+      <a href="#contact" class="nav__link"><span>05</span>Контакты</a>
+    </nav>
+
+    <a class="btn btn--ghost header__cta" href="#contact">
+      <span class="btn__dot" aria-hidden="true"></span>
+      Свободен для проектов
+    </a>
+
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__aurora" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+      </div>
+      <div class="hero__grid-lines" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="hero__badge reveal" data-reveal>
+            <span class="pulse" aria-hidden="true"></span>
+            Открыт к первым клиентам · работаю онлайн
+          </p>
+
+          <h1 class="hero__title">
+            <span class="line"><span class="word">Создаю</span> <span class="word">сайты,</span></span>
+            <span class="line"><span class="word">которые</span> <span class="word accent">хочется</span></span>
+            <span class="line"><span class="word accent">листать</span> <span class="word">до&nbsp;конца</span></span>
+          </h1>
+
+          <p class="hero__lead reveal" data-reveal data-delay="120">
+            Привет, я веб-разработчик. Делаю адаптивные лендинги и сайты на
+            <strong>HTML, CSS и JavaScript</strong> — аккуратные, быстрые и с живыми
+            анимациями. Начинаю свой путь и ищу первых клиентов, которым нужен
+            сайт «под ключ» без агентских бюджетов.
+          </p>
+
+          <div class="hero__actions reveal" data-reveal data-delay="200">
+            <a class="btn btn--primary magnetic" href="#contact">
+              Обсудить проект
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a class="btn btn--text magnetic" href="#work">
+              Смотреть работы
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+          </div>
+
+          <dl class="hero__stats reveal" data-reveal data-delay="280">
+            <div>
+              <dt>Ответ на заявку</dt>
+              <dd><span data-count="24" data-suffix="ч">0</span></dd>
+            </div>
+            <div>
+              <dt>Адаптивность</dt>
+              <dd><span data-count="100" data-suffix="%">0</span></dd>
+            </div>
+            <div>
+              <dt>Проектов в портфолио</dt>
+              <dd><span data-count="3" data-pad="2">0</span></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero__visual reveal" data-reveal data-delay="180">
+          <div class="code-card" id="codeCard">
+            <div class="code-card__bar">
+              <span class="dot dot--r"></span>
+              <span class="dot dot--y"></span>
+              <span class="dot dot--g"></span>
+              <span class="code-card__file">hero.js</span>
+            </div>
+            <pre class="code-card__body"><code id="codeTyping"></code><span class="code-card__caret" aria-hidden="true"></span></pre>
+            <div class="code-card__foot">
+              <span class="code-card__chip" id="codeChip">готов к работе</span>
+              <span class="code-card__lang">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="float-card float-card--top" data-float="0.06">
+            <span class="float-card__icon" aria-hidden="true">⚡</span>
+            <div>
+              <strong>Быстрая загрузка</strong>
+              <small>лёгкий код без мусора</small>
+            </div>
+          </div>
+
+          <div class="float-card float-card--bottom" data-float="0.12">
+            <span class="float-card__icon" aria-hidden="true">📱</span>
+            <div>
+              <strong>Мобильная версия</strong>
+              <small>от 320px и выше</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#about" aria-label="Листать вниз">
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+        листайте
+      </a>
+    </section>
+
+    <!-- Бегущая строка -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>HTML5</span><i>✳</i><span>CSS3</span><i>✳</i><span>JavaScript</span><i>✳</i>
+        <span>адаптивная вёрстка</span><i>✳</i><span>анимации</span><i>✳</i>
+        <span>Figma</span><i>✳</i>
+        <span>оптимизация</span><i>✳</i><span>сайты под ключ</span><i>✳</i>
+        <span>HTML5</span><i>✳</i><span>CSS3</span><i>✳</i><span>JavaScript</span><i>✳</i>
+        <span>адаптивная вёрстка</span><i>✳</i><span>анимации</span><i>✳</i>
+        <span>Figma</span><i>✳</i>
+        <span>оптимизация</span><i>✳</i><span>сайты под ключ</span><i>✳</i>
+      </div>
+    </div>
+
+    <!-- Обо мне -->
+    <section class="section about" id="about">
+      <div class="section__head">
+        <p class="section__label reveal" data-reveal><span>01</span> Обо мне</p>
+        <h2 class="section__title reveal" data-reveal data-delay="80">
+          Начинающий разработчик<br /> с <em>взрослым</em> подходом к делу
+        </h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__text">
+          <p class="reveal" data-reveal>
+            Я только начинаю в веб-разработке — и считаю это преимуществом: у меня есть время,
+            азарт и желание разобраться в вашей задаче по-настоящему, а не «закрыть тикет».
+          </p>
+          <p class="reveal" data-reveal data-delay="80">
+            Пишу на чистых HTML, CSS и JavaScript. Без тяжёлых конструкторов и тысяч плагинов —
+            ваш сайт будет быстрым, а код останется понятным любому разработчику, который
+            откроет его после меня.
+          </p>
+          <p class="reveal" data-reveal data-delay="160">
+            Делаю адаптив от небольших телефонов до широких мониторов, слежу за доступностью
+            и добавляю анимации, которые помогают, а не мешают. Объясняю всё простыми словами
+            и на связи почти в любое время.
+          </p>
+
+          <ul class="about__list">
+            <li class="reveal" data-reveal data-delay="120"><span aria-hidden="true">→</span> Погружаюсь в задачу и предлагаю решения, а не просто «сделаю как скажете»</li>
+            <li class="reveal" data-reveal data-delay="180"><span aria-hidden="true">→</span> Работаю по этапам: вы видите прогресс и можете влиять на результат</li>
+            <li class="reveal" data-reveal data-delay="240"><span aria-hidden="true">→</span> Отдаю готовый сайт и помогаю разместить его в интернете</li>
+          </ul>
+        </div>
+
+        <aside class="about__panel reveal" data-reveal data-delay="140">
+          <div class="about__panel-top">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Статус</span>
+            <strong>ищу первых клиентов</strong>
+          </div>
+          <dl class="about__facts">
+            <div><dt>Опыт</dt><dd>Начинающий · pet-проекты и концепты</dd></div>
+            <div><dt>Формат</dt><dd>Онлайн, по всей России и СНГ</dd></div>
+            <div><dt>Сроки</dt><dd>Лендинг — от 5 дней</dd></div>
+            <div><dt>Связь</dt><dd><a href="mailto:tanusazunusova@gmail.com">tanusazunusova@gmail.com</a></dd></div>
+          </dl>
+          <a class="btn btn--primary btn--wide magnetic" href="#contact">Начать проект</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Навыки -->
+    <section class="section skills" id="skills">
+      <div class="section__head section__head--row">
+        <div>
+          <p class="section__label reveal" data-reveal><span>02</span> Навыки</p>
+          <h2 class="section__title reveal" data-reveal data-delay="80">Чем я <em>полезен</em></h2>
+        </div>
+        <p class="section__note reveal" data-reveal data-delay="140">
+          Основа — чистый фронтенд. Каждый навык закреплён практикой в проектах ниже.
+        </p>
+      </div>
+
+      <div class="skills__grid">
+        <article class="skill-card spotlight reveal" data-reveal>
+          <div class="skill-card__top">
+            <span class="skill-card__num">01</span>
+            <span class="skill-card__icon" aria-hidden="true">&lt;/&gt;</span>
+          </div>
+          <h3>HTML / CSS</h3>
+          <p>Семантичная разметка, Flexbox и Grid, адаптивная вёрстка, переменные, плавные переходы и анимации без лишних библиотек.</p>
+          <div class="skill-bar" role="img" aria-label="Уровень подготовки: уверенная база">
+            <i style="--w: 85%"></i>
+          </div>
+          <ul class="skill-card__tags">
+            <li>Flexbox / Grid</li><li>адаптив</li><li>BEM</li><li>анимации</li>
+          </ul>
+        </article>
+
+        <article class="skill-card spotlight reveal" data-reveal data-delay="90">
+          <div class="skill-card__top">
+            <span class="skill-card__num">02</span>
+            <span class="skill-card__icon" aria-hidden="true">{ }</span>
+          </div>
+          <h3>JavaScript</h3>
+          <p>Интерактивность, работа с DOM и событиями, анимации по скроллу, формы с валидацией, запросы к данным и аккуратная структура кода.</p>
+          <div class="skill-bar" role="img" aria-label="Уровень подготовки: активно практикуюсь">
+            <i style="--w: 72%"></i>
+          </div>
+          <ul class="skill-card__tags">
+            <li>DOM</li><li>events</li><li>fetch / API</li><li>localStorage</li>
+          </ul>
+        </article>
+
+        <article class="skill-card spotlight reveal" data-reveal data-delay="180">
+          <div class="skill-card__top">
+            <span class="skill-card__num">03</span>
+            <span class="skill-card__icon" aria-hidden="true">◐</span>
+          </div>
+          <h3>Разработка сайтов</h3>
+          <p>Лендинги и сайты-визитки под ключ: структура и прототип, дизайн, вёрстка, подключение домена и публикация. Помогу с текстами и логикой блоков.</p>
+          <div class="skill-bar" role="img" aria-label="Уровень подготовки: делаю сайты под ключ">
+            <i style="--w: 78%"></i>
+          </div>
+          <ul class="skill-card__tags">
+            <li>лендинги</li><li>визитки</li><li>дизайн</li><li>публикация</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="skills__extra reveal" data-reveal data-delay="120">
+        <span class="skills__extra-label">Ещё в работе:</span>
+        <ul>
+          <li>Figma</li><li>адаптивные изображения</li>
+          <li>основы SEO</li><li>доступность (a11y)</li><li>оптимизация скорости</li>
+          <li>подключение форм</li><li>работа с анимациями</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Работы -->
+    <section class="section work" id="work">
+      <div class="section__head section__head--row">
+        <div>
+          <p class="section__label reveal" data-reveal><span>03</span> Работы</p>
+          <h2 class="section__title reveal" data-reveal data-delay="80">Три <em>концепта</em>,<br /> сделанных с нуля</h2>
+        </div>
+        <p class="section__note reveal" data-reveal data-delay="140">
+          Это не заказные кейсы, а проекты, которые я придумал и собрал сам, чтобы показать
+          подход к дизайну и вёрстке. Нажмите на карточку — покажу детали.
+        </p>
+      </div>
+
+      <div class="work__grid">
+        <article class="project project--wide spotlight reveal" data-reveal data-project="coffee" tabindex="0" role="button" aria-label="Открыть кейс AETHER Coffee"
+          data-title="AETHER Coffee" data-type="Сайт кофейни · концепт"
+          data-desc="Лендинг для обжарщиков кофе: тёмная тёплая палитра, крупная антиква, сетка «текст + фото» и меню сортов. Показывает, что умею работать с атмосферой и типографикой бренда."
+          data-tags="Адаптив, CSS Grid, анимации появления, подбор типографики">
+          <div class="project__media">
+            <img src="assets/work-coffee.jpg" alt="Концепт сайта кофейни AETHER Coffee: тёмная палитра и крупная типографика" loading="lazy" width="1312" height="820" />
+            <span class="project__view">смотреть кейс <i aria-hidden="true">↗</i></span>
+          </div>
+          <div class="project__meta">
+            <div>
+              <h3>AETHER Coffee</h3>
+              <p>Сайт обжарщиков кофе · концепт</p>
+            </div>
+            <ul class="project__tags"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+          </div>
+        </article>
+
+        <article class="project spotlight reveal" data-reveal data-delay="90" data-project="photo" tabindex="0" role="button" aria-label="Открыть кейс NORTH — фотограф"
+          data-title="NORTH — фотограф" data-type="Портфолио-сайт · концепт"
+          data-desc="Минималистичное портфолио фотографа: чёрно-белые работы, асимметричная сетка, много воздуха и почти незаметная навигация. Задача — не мешать изображениям говорить за себя."
+          data-tags="Асимметричная сетка, лайтбокс, плавный скролл, оптимизация фото">
+          <div class="project__media">
+            <img src="assets/work-photo.jpg" alt="Концепт сайта-портфолио фотографа с чёрно-белыми снимками" loading="lazy" width="1312" height="820" />
+            <span class="project__view">смотреть кейс <i aria-hidden="true">↗</i></span>
+          </div>
+          <div class="project__meta">
+            <div>
+              <h3>NORTH — фотограф</h3>
+              <p>Портфолио-сайт · концепт</p>
+            </div>
+            <ul class="project__tags"><li>HTML</li><li>CSS</li></ul>
+          </div>
+        </article>
+
+        <article class="project spotlight reveal" data-reveal data-delay="180" data-project="plants" tabindex="0" role="button" aria-label="Открыть кейс LEAFY — магазин растений"
+          data-title="LEAFY — магазин растений" data-type="Интернет-магазин · концепт"
+          data-desc="Каталог комнатных растений: карточки товаров, фильтры-категории, корзина в интерфейсе. Показывает умение собирать аккуратные сетки и повторяющиеся компоненты."
+          data-tags="Каталог, фильтры, корзина, UI-компоненты">
+          <div class="project__media">
+            <img src="assets/work-plants.jpg" alt="Концепт интернет-магазина комнатных растений с каталогом карточек" loading="lazy" width="1312" height="820" />
+            <span class="project__view">смотреть кейс <i aria-hidden="true">↗</i></span>
+          </div>
+          <div class="project__meta">
+            <div>
+              <h3>LEAFY — растения</h3>
+              <p>Интернет-магазин · концепт</p>
+            </div>
+            <ul class="project__tags"><li>CSS</li><li>JS</li></ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="work__cta reveal" data-reveal>
+        <p>Хотите, чтобы в этом списке был ваш проект?</p>
+        <a class="btn btn--primary magnetic" href="#contact">Стать первым клиентом</a>
+      </div>
+    </section>
+
+    <!-- Процесс -->
+    <section class="section process" id="process">
+      <div class="section__head">
+        <p class="section__label reveal" data-reveal><span>04</span> Как я работаю</p>
+        <h2 class="section__title reveal" data-reveal data-delay="80">Четыре шага<br /> без <em>сюрпризов</em></h2>
+      </div>
+
+      <ol class="process__list">
+        <li class="process__item reveal" data-reveal>
+          <span class="process__num">01</span>
+          <div>
+            <h3>Знакомство</h3>
+            <p>Обсуждаем задачу в переписке или по видеосвязи: что за бизнес, кто ваши клиенты, какой результат нужен. Я задаю вопросы и предлагаю структуру.</p>
+            <span class="process__time">15–30 минут</span>
+          </div>
+        </li>
+        <li class="process__item reveal" data-reveal data-delay="90">
+          <span class="process__num">02</span>
+          <div>
+            <h3>Прототип и дизайн</h3>
+            <p>Собираю схему страницы и визуальный концепт: цвета, шрифты, настроение. Согласовываем до начала вёрстки — правки на этом этапе бесплатны.</p>
+            <span class="process__time">1–2 дня</span>
+          </div>
+        </li>
+        <li class="process__item reveal" data-reveal data-delay="180">
+          <span class="process__num">03</span>
+          <div>
+            <h3>Разработка</h3>
+            <p>Верстаю адаптивно, подключаю анимации и интерактив, проверяю на телефонах и популярных браузерах. Показываю промежуточный результат.</p>
+            <span class="process__time">3–7 дней</span>
+          </div>
+        </li>
+        <li class="process__item reveal" data-reveal data-delay="270">
+          <span class="process__num">04</span>
+          <div>
+            <h3>Запуск и поддержка</h3>
+            <p>Публикую сайт, подключаю домен, передаю доступы и короткую инструкцию. Помогу с правками после запуска — первые две недели бесплатно.</p>
+            <span class="process__time">1 день + поддержка</span>
+          </div>
+        </li>
+      </ol>
+
+      <div class="process__note reveal" data-reveal>
+        <span aria-hidden="true">✦</span>
+        <p>Работаю по принципу «сначала показываю — потом дорабатываю». Вы всегда понимаете, на каком этапе проект и что будет дальше.</p>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact" id="contact">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="contact__inner">
+        <p class="section__label reveal" data-reveal><span>05</span> Контакты</p>
+        <h2 class="contact__title reveal" data-reveal data-delay="60">
+          Давайте сделаем<br /><em>ваш</em> сайт
+        </h2>
+        <p class="contact__lead reveal" data-reveal data-delay="120">
+          Расскажите коротко о проекте — отвечу в течение суток, предложу структуру
+          и честную оценку сроков. Консультация и первая оценка бесплатно.
+        </p>
+
+        <div class="contact__email reveal" data-reveal data-delay="160">
+          <a href="mailto:tanusazunusova@gmail.com" class="contact__mail">tanusazunusova@gmail.com</a>
+          <button class="copy-btn" id="copyEmail" data-email="tanusazunusova@gmail.com" aria-label="Скопировать email">
+            <span class="copy-btn__label">копировать</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" /><path d="M5 15V5a1 1 0 0 1 1-1h9" /></svg>
+          </button>
+        </div>
+
+        <form class="contact__form reveal" data-reveal data-delay="200" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Как вас зовут</label>
+            <input id="name" name="name" type="text" placeholder="Имя или название компании" required />
+          </div>
+          <div class="field">
+            <label for="contact">Почта или телеграм</label>
+            <input id="contact" name="contact" type="text" placeholder="куда ответить" required />
+          </div>
+          <div class="field field--full">
+            <label for="message">Что нужно сделать</label>
+            <textarea id="message" name="message" rows="3" placeholder="Например: лендинг для студии маникюра, нужен дизайн и сайт с записью" required></textarea>
+          </div>
+          <div class="contact__form-foot">
+            <button class="btn btn--primary magnetic" type="submit">
+              Отправить заявку
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </button>
+            <p class="form-note" id="formNote" role="status">Форма откроет ваш почтовый клиент с готовым письмом.</p>
+          </div>
+        </form>
+
+        <ul class="contact__links reveal" data-reveal data-delay="240">
+          <li><a href="mailto:tanusazunusova@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#work">Проекты <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__logo">&lt;/&gt; веб-разработчик</p>
+      <p class="footer__copy">© <span id="year">2026</span> · Сделано с нуля на HTML, CSS и JavaScript · Начинающий специалист, открыт к первым проектам</p>
+      <a class="footer__top" href="#hero">наверх <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <!-- Модалка кейса -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card">
+      <button class="modal__close" data-close aria-label="Закрыть">
+        <span></span><span></span>
+      </button>
+      <div class="modal__media"><img id="modalImg" src="" alt="" /></div>
+      <div class="modal__body">
+        <p class="modal__type" id="modalType"></p>
+        <h3 id="modalTitle"></h3>
+        <p class="modal__desc" id="modalDesc"></p>
+        <p class="modal__tags" id="modalTags"></p>
+        <div class="modal__actions">
+          <a class="btn btn--primary" href="#contact" data-close>Хочу такой же сайт</a>
+          <button class="btn btn--text" data-close>Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
