@@ -30,6 +30,9 @@
 
 **GitHub Pages:** <https://efortop.github.io/cubeclient1/>
 
+Сайт раздаётся из ветки `gh-pages`. Любой пуш в `main` автоматически
+пересобирает опубликованную версию (workflow «Deploy to GitHub Pages»).
+
 ## Запуск локально
 
 ```bash

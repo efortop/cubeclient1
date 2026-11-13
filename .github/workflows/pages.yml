@@ -6,54 +6,40 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        id: pages
-        continue-on-error: true
-        uses: actions/configure-pages@v5
-        with:
-          # Пробуем включить Pages автоматически (source: GitHub Actions)
-          enablement: true
+      - name: Publish to gh-pages
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-          # Безопасный дефолт, если configure-pages не сработал
-          name: github-pages-${{ github.run_attempt }}
+          # Собираем чистую копию сайта (без служебных файлов)
+          rm -rf .git .github
+          mkdir -p /tmp/site && cp -R . /tmp/site/
 
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          artifact_name: github-pages-${{ github.run_attempt }}
+          cd /tmp/site
+          git init -q -b gh-pages
+          git add -A
+          git commit -q -m "deploy: ${{ github.sha }}"
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git push -f origin gh-pages
 
-      - name: Подсказка, если Pages выключен
-        if: failure()
+      - name: Итог
         run: |
           {
-            echo "### Нужен один клик, чтобы включить сайт"
+            echo "### Сайт обновлён"
             echo ""
-            echo "1. Откройте **Settings → Pages**: https://github.com/${{ github.repository }}/settings/pages"
-            echo "2. В **Build and deployment → Source** выберите **GitHub Actions**."
-            echo "3. Запустите workflow заново: Actions → Deploy to GitHub Pages → Re-run jobs."
-            echo ""
-            echo "Сайт появится по адресу: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+            echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
           } >> "$GITHUB_STEP_SUMMARY"
