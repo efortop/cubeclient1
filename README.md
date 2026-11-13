@@ -20,6 +20,13 @@
 Чистые HTML, CSS и JavaScript. Без сборки и зависимостей.
 Шрифты — Unbounded и Manrope (Google Fonts).
 
+## Где посмотреть
+
+- **GitHub Pages:** <https://efortop.github.io/cubeclient1/> — включите
+  Settings → Pages → Source: **GitHub Actions**, затем перезапустите workflow
+  «Deploy to GitHub Pages».
+- **Зеркало без настройки:** <https://cdn.jsdelivr.net/gh/efortop/cubeclient1@main/index.html>
+
 ## Запуск
 
 ```bash
