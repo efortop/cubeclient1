@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#000000" />
+<title>Pixel 10 — свет, который остаётся</title>
+<meta name="description" content="Pixel 10. Минимализм в чёрном, камера, которая видит в темноте, и Gemini, который всегда рядом." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Pixel 10 — свет, который остаётся" />
+<meta property="og:description" content="Тёмный минималистичный концепт-лендинг: дизайн, Tensor G5, камера Night Sight и Gemini Live." />
+<meta property="og:image" content="assets/hero-phone.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23000'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%238ab4f8' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%238ab4f8'/%3E%3C/svg%3E" />
+<link rel="preload" href="assets/fonts/unbounded-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="styles.css" />
+<noscript>
+  <style>
+    .hero-title .line-inner { transform: none !important; }
+    .reveal, [data-reveal] { opacity: 1 !important; transform: none !important; }
+  </style>
+</noscript>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<div class="scroll-progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Pixel 10 — наверх">
+    <span class="brand-dot" aria-hidden="true"></span>
+    <span class="brand-name">Pixel&nbsp;10</span>
+  </a>
+  <nav class="nav-links" aria-label="Основная навигация">
+    <a href="#design">Дизайн</a>
+    <a href="#features">Фишки</a>
+    <a href="#camera">Камера</a>
+    <a href="#specs">Характеристики</a>
+  </nav>
+  <a class="btn btn-ghost nav-cta" href="https://store.google.com/product/pixel_10" target="_blank" rel="noopener">
+    <span>Купить</span>
+  </a>
+</header>
+
+<main id="top">
+
+  <!-- ───────────── HERO ───────────── -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-aura" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <p class="eyebrow hero-eyebrow">
+        <span class="pulse" aria-hidden="true"></span>
+        Google Pixel 10 · Tensor G5
+      </p>
+
+      <h1 id="hero-title" class="hero-title">
+        <span class="line"><span class="line-inner">Pixel</span></span>
+        <span class="line"><span class="line-inner"><em class="outline">10</em><span class="hero-title-tail">Pro</span></span></span>
+      </h1>
+
+      <p class="hero-sub reveal" style="--d:.55s">
+        Минимализм, который чувствуется.<br />
+        Камера, которая видит в темноте.<br />
+        Gemini, который всегда рядом.
+      </p>
+
+      <div class="hero-actions reveal" style="--d:.72s">
+        <a class="btn btn-solid magnetic" href="#features">
+          <span>Смотреть фишки</span>
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 2v11M3.5 8.5L8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-line magnetic" href="https://store.google.com/product/pixel_10" target="_blank" rel="noopener"><span>Купить</span></a>
+      </div>
+
+      <ul class="hero-stats reveal" style="--d:.85s">
+        <li><b>6.8″</b><span>Super Actua</span></li>
+        <li><b>3000</b><span>нит пиковой яркости</span></li>
+        <li><b>7 лет</b><span>обновлений</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-phone" id="heroPhone">
+        <div class="phone-tint" id="phoneTint"></div>
+        <img src="assets/hero-phone.jpg" alt="" width="1400" height="788" loading="eager" fetchpriority="high" />
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#design" aria-label="Прокрутить вниз">
+      <span class="scroll-cue-line" aria-hidden="true"></span>
+      <span>листайте</span>
+    </a>
+  </section>
+
+  <!-- ───────────── БЕГУЩАЯ СТРОКА ───────────── -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Tensor G5</span><span class="dot">·</span>
+      <span>Gemini Live</span><span class="dot">·</span>
+      <span>Night Sight</span><span class="dot">·</span>
+      <span>3000 нит</span><span class="dot">·</span>
+      <span>IP68</span><span class="dot">·</span>
+      <span>7 лет обновлений</span><span class="dot">·</span>
+      <span>Qi2</span><span class="dot">·</span>
+      <span>Tensor G5</span><span class="dot">·</span>
+      <span>Gemini Live</span><span class="dot">·</span>
+      <span>Night Sight</span><span class="dot">·</span>
+      <span>3000 нит</span><span class="dot">·</span>
+      <span>IP68</span><span class="dot">·</span>
+      <span>7 лет обновлений</span><span class="dot">·</span>
+      <span>Qi2</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- ───────────── ДИЗАЙН ───────────── -->
+  <section class="section design" id="design">
+    <div class="section-head">
+      <p class="eyebrow reveal"><span class="num">01</span> Дизайн</p>
+      <h2 class="display reveal" style="--d:.08s">
+        Чёрный — это не цвет.<br />
+        <em>Это отсутствие лишнего.</em>
+      </h2>
+      <p class="lead reveal" style="--d:.16s">
+        Матовое стекло, алюминиевая рамка и одна линия камеры, которая стала
+        подписью. Ничего, что отвлекало бы от главного — света на экране.
+      </p>
+    </div>
+
+    <div class="design-grid">
+      <article class="design-card reveal" style="--d:.1s">
+        <div class="design-card-glow" aria-hidden="true"></div>
+        <span class="tag">Материалы</span>
+        <h3>Матовая тишина</h3>
+        <p>Стекло с бархатной текстурой не собирает отпечатки. Алюминий рамки отполирован так, что ловит свет только по грани.</p>
+        <div class="design-swatch" aria-hidden="true"></div>
+      </article>
+
+      <article class="design-card reveal" style="--d:.2s">
+        <div class="design-card-glow" aria-hidden="true"></div>
+        <span class="tag">Форма</span>
+        <h3>8,5 мм спокойствия</h3>
+        <p>Скруглённые углы, плоские грани, вес, который распределён так, что телефон не хочется класть.</p>
+        <div class="design-swatch design-swatch--thin" aria-hidden="true"></div>
+      </article>
+
+      <article class="design-card reveal" style="--d:.3s">
+        <div class="design-card-glow" aria-hidden="true"></div>
+        <span class="tag">Защита</span>
+        <h3>IP68</h3>
+        <p>Дождь, бассейн, пыль и случайное падение в снег. Телефон просто продолжает работать.</p>
+        <div class="design-swatch design-swatch--ring" aria-hidden="true"></div>
+      </article>
+    </div>
+
+    <div class="colours reveal" style="--d:.1s">
+      <div class="colours-copy">
+        <span class="tag">Три оттенка</span>
+        <h3 class="colours-title">Выберите <span id="colourName">Обсидиан</span></h3>
+        <p class="muted">Оттенок меняет подсветку сцены — как свет в комнате.</p>
+        <div class="swatches" role="group" aria-label="Цвет корпуса">
+          <button class="swatch is-active" data-colour="obsidian" aria-pressed="true">
+            <span class="swatch-dot" style="--c1:#1a1a1f;--c2:#000"></span>Обсидиан
+          </button>
+          <button class="swatch" data-colour="indigo" aria-pressed="false">
+            <span class="swatch-dot" style="--c1:#4b5ea8;--c2:#0a0f24"></span>Индиго
+          </button>
+          <button class="swatch" data-colour="porcelain" aria-pressed="false">
+            <span class="swatch-dot" style="--c1:#e8e6e1;--c2:#8d8b86"></span>Фарфор
+          </button>
+        </div>
+      </div>
+      <div class="colours-orb" aria-hidden="true"><span></span></div>
+    </div>
+  </section>
+
+  <!-- ───────────── ФИШКИ ───────────── -->
+  <section class="section features" id="features">
+    <div class="section-head">
+      <p class="eyebrow reveal"><span class="num">02</span> Фишки</p>
+      <h2 class="display reveal" style="--d:.08s">
+        Всё умное —<br />
+        <em>спрятано в простое.</em>
+      </h2>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature spotlight reveal" style="--d:.04s">
+        <span class="feature-index">01</span>
+        <h3>Tensor G5</h3>
+        <p>Собственный чип, созданный под ИИ. Мгновенные ответы, живой перевод и обработка фото прямо на устройстве.</p>
+        <span class="feature-meta">3 нм · 60% быстрее в ИИ</span>
+      </article>
+
+      <article class="feature spotlight reveal" style="--d:.1s">
+        <span class="feature-index">02</span>
+        <h3>Gemini Live</h3>
+        <p>Покажите камерой на что угодно и спросите голосом. Он видит то же, что и вы — и отвечает сразу.</p>
+        <span class="feature-meta">Голос · Камера · Экран</span>
+      </article>
+
+      <article class="feature spotlight reveal" style="--d:.16s">
+        <span class="feature-index">03</span>
+        <h3>Camera Bar</h3>
+        <p>Три объектива выстроены в одну линию. Оптика, которая не спорит с формой корпуса.</p>
+        <span class="feature-meta">50 МП · 5× · 8K</span>
+      </article>
+
+      <article class="feature spotlight reveal" style="--d:.22s">
+        <span class="feature-index">04</span>
+        <h3>Night Sight</h3>
+        <p>Ночь превращается в сумерки, сумерки — в день. Без штатива, без вспышки, без шума.</p>
+        <span class="feature-meta">Astro · Long exposure</span>
+      </article>
+
+      <article class="feature spotlight reveal" style="--d:.28s">
+        <span class="feature-index">05</span>
+        <h3>Qi2 и PixelSnap</h3>
+        <p>Магниты внутри. Держатели, кошельки и зарядки просто прилипают — и держатся ровно.</p>
+        <span class="feature-meta">15 Вт беспроводная</span>
+      </article>
+
+      <article class="feature spotlight reveal" style="--d:.34s">
+        <span class="feature-index">06</span>
+        <h3>7 лет обновлений</h3>
+        <p>Android, безопасность и новые функции. Телефон взрослеет вместе с вами.</p>
+        <span class="feature-meta">до 2032 года</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────────── КАМЕРА ───────────── -->
+  <section class="section camera" id="camera">
+    <div class="camera-media reveal">
+      <img src="assets/camera-macro.jpg" alt="Макросъёмка блока камер Pixel 10 Pro: три объектива" width="1600" height="900" loading="lazy" />
+      <div class="camera-media-caption">
+        <span class="tag">50 МП · ƒ/1.7</span>
+        <span class="tag">Сенсор 1/1.3″</span>
+      </div>
+    </div>
+
+    <div class="camera-copy">
+      <p class="eyebrow reveal"><span class="num">03</span> Камера</p>
+      <h2 class="display reveal" style="--d:.08s">
+        Ночь перестала<br />
+        быть <em>проблемой.</em>
+      </h2>
+      <p class="lead reveal" style="--d:.16s">
+        Большой сенсор, быстрая оптика и вычислительная фотография, которая
+        складывает до 15 кадров в один. То, что глаз почти не видит, Pixel
+        записывает спокойно.
+      </p>
+
+      <dl class="counters">
+        <div class="reveal" style="--d:.22s">
+          <dt><span data-count="50">0</span><i>МП</i></dt>
+          <dd>основная камера</dd>
+        </div>
+        <div class="reveal" style="--d:.3s">
+          <dt><span data-count="5">0</span><i>×</i></dt>
+          <dd>оптический зум</dd>
+        </div>
+        <div class="reveal" style="--d:.38s">
+          <dt><span data-count="8">0</span><i>K</i></dt>
+          <dd>видео 30 к/с</dd>
+        </div>
+        <div class="reveal" style="--d:.46s">
+          <dt><span data-count="42">0</span><i>МП</i></dt>
+          <dd>фронтальная</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ───────────── ГАЛЕРЕЯ ───────────── -->
+  <section class="section gallery" id="gallery">
+    <div class="section-head gallery-head">
+      <div>
+        <p class="eyebrow reveal"><span class="num">04</span> Галерея</p>
+        <h2 class="display reveal" style="--d:.08s">Снято <em>на Pixel 10</em></h2>
+      </div>
+      <p class="muted reveal" style="--d:.16s">Без штатива. Без обработки. Просто момент, который захотелось оставить.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <figure class="shot reveal" style="--d:.05s">
+        <div class="shot-img"><img src="assets/shot-night.jpg" alt="Млечный Путь над горным хребтом" width="1400" height="788" loading="lazy" /></div>
+        <figcaption><span>Астрофото</span><span class="mono">4 с · ISO 3200</span></figcaption>
+      </figure>
+      <figure class="shot reveal" style="--d:.14s">
+        <div class="shot-img"><img src="assets/shot-city.jpg" alt="Ночной город после дождя в отражениях огней" width="1400" height="788" loading="lazy" /></div>
+        <figcaption><span>Night Sight</span><span class="mono">1/15 с · ISO 800</span></figcaption>
+      </figure>
+      <figure class="shot reveal" style="--d:.23s">
+        <div class="shot-img"><img src="assets/shot-portrait.jpg" alt="Портрет при слабом освещении" width="1400" height="788" loading="lazy" /></div>
+        <figcaption><span>Портрет</span><span class="mono">ƒ/1.7 · 50 мм</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ───────────── ХАРАКТЕРИСТИКИ ───────────── -->
+  <section class="section specs" id="specs">
+    <div class="specs-head">
+      <p class="eyebrow reveal"><span class="num">05</span> Характеристики</p>
+      <h2 class="display reveal" style="--d:.08s">Цифры.<br /><em>Без лишних слов.</em></h2>
+    </div>
+
+    <dl class="spec-list">
+      <div class="spec-row reveal"><dt>Дисплей</dt><dd><span>6,8″ Super Actua</span><span class="mono">1–120 Гц · 3000 нит</span></dd></div>
+      <div class="spec-row reveal"><dt>Чип</dt><dd><span>Google Tensor G5</span><span class="mono">3 нм</span></dd></div>
+      <div class="spec-row reveal"><dt>Память</dt><dd><span>16 ГБ RAM</span><span class="mono">128 / 256 / 512 ГБ · 1 ТБ</span></dd></div>
+      <div class="spec-row reveal"><dt>Камеры</dt><dd><span>50 МП + 48 МП + 48 МП</span><span class="mono">5× оптический</span></dd></div>
+      <div class="spec-row reveal"><dt>Фронтальная</dt><dd><span>42 МП</span><span class="mono">автофокус · 4K</span></dd></div>
+      <div class="spec-row reveal"><dt>Аккумулятор</dt><dd><span>5060 мА·ч</span><span class="mono">30 Вт · Qi2 15 Вт</span></dd></div>
+      <div class="spec-row reveal"><dt>Материалы</dt><dd><span>Матовое стекло, алюминий</span><span class="mono">IP68</span></dd></div>
+      <div class="spec-row reveal"><dt>Обновления</dt><dd><span>Android и безопасность</span><span class="mono">7 лет</span></dd></div>
+      <div class="spec-row reveal"><dt>Цвета</dt><dd><span>Обсидиан · Индиго · Фарфор</span><span class="mono">3 оттенка</span></dd></div>
+    </dl>
+  </section>
+
+  <!-- ───────────── ФИНАЛ ───────────── -->
+  <section class="section cta">
+    <div class="cta-aura" aria-hidden="true"></div>
+    <p class="eyebrow reveal">Pixel 10 Pro</p>
+    <h2 class="display cta-title reveal" style="--d:.08s">
+      Тишина,<br /><em>в которой всё слышно.</em>
+    </h2>
+    <div class="hero-actions reveal" style="--d:.16s">
+      <a class="btn btn-solid magnetic" href="https://store.google.com/product/pixel_10" target="_blank" rel="noopener"><span>Купить Pixel 10</span></a>
+      <a class="btn btn-line magnetic" href="#top"><span>Наверх</span></a>
+    </div>
+    <p class="cta-note reveal" style="--d:.22s">от 79 990 ₽ · доступен в трёх цветах</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-top">
+    <span class="brand"><span class="brand-dot" aria-hidden="true"></span><span class="brand-name">Pixel&nbsp;10</span></span>
+    <nav class="footer-links" aria-label="Ссылки в подвале">
+      <a href="#design">Дизайн</a>
+      <a href="#features">Фишки</a>
+      <a href="#camera">Камера</a>
+      <a href="#specs">Характеристики</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>Неофициальный концепт-сайт. Не связан с Google LLC. Изображения сгенерированы.</p>
+    <p class="mono">© <span id="year">2026</span> · сделано с любовью к минимализму</p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
