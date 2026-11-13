@@ -22,15 +22,14 @@ jobs:
       - name: Publish to gh-pages
         run: |
           set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           # Собираем чистую копию сайта (без служебных файлов)
           rm -rf .git .github
           mkdir -p /tmp/site && cp -R . /tmp/site/
 
           cd /tmp/site
           git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -q -m "deploy: ${{ github.sha }}"
           git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
