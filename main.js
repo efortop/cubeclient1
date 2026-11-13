@@ -9,12 +9,47 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+  /* ---------- Reveal по скроллу ---------- */
+  const revealItems = $$("[data-reveal]");
+  revealItems.forEach((el) => {
+    const delay = el.dataset.delay;
+    if (delay) el.style.setProperty("--reveal-delay", `${delay}ms`);
+  });
+
+  let revealStarted = false;
+  function initReveal() {
+    if (revealStarted) return;
+    revealStarted = true;
+
+    if (!("IntersectionObserver" in window)) {
+      revealItems.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+    revealItems.forEach((el) => revealObserver.observe(el));
+  }
+
+  // Если что-то пойдёт не так с прелоадером — показываем контент принудительно
+  setTimeout(initReveal, 3500);
+
   /* ---------- Прелоадер ---------- */
   const preloader = $("#preloader");
   const preCount = $("#preloaderCount");
   const preBar = $("#preloaderBar");
 
   let progress = 0;
+  let preloaderStarted = false;
   function finishLoading() {
     document.body.classList.add("is-ready");
     if (preloader) {
@@ -25,6 +60,9 @@
   }
 
   function runPreloader() {
+    if (preloaderStarted) return;
+    preloaderStarted = true;
+    initReveal();
     if (!preloader || reduceMotion) {
       document.body.classList.add("is-ready");
       if (preloader) preloader.remove();
@@ -135,31 +173,6 @@
 
   function escapeHtml(str) {
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  }
-
-  /* ---------- Reveal по скроллу ---------- */
-  const revealItems = $$("[data-reveal]");
-  revealItems.forEach((el) => {
-    const delay = el.dataset.delay;
-    if (delay) el.style.setProperty("--reveal-delay", `${delay}ms`);
-  });
-
-  if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
-    );
-    // Небольшая задержка, чтобы элементы вне первого экрана появились плавно
-    revealItems.forEach((el) => revealObserver.observe(el));
-  } else {
-    revealItems.forEach((el) => el.classList.add("is-visible"));
   }
 
   /* ---------- Счётчики ---------- */
@@ -408,9 +421,32 @@
 
   $$(".project").forEach((project) => {
     project.addEventListener("click", () => openModal(project));
+    project.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(project);
+      }
+    });
   });
   if (modal) {
-    $$("[data-close]", modal).forEach((el) => el.addEventListener("click", closeModal));
+    $$("[data-close]", modal).forEach((el) => {
+      el.addEventListener("click", (e) => {
+        const href = el.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          closeModal();
+          const target = document.querySelector(href);
+          if (target) {
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+              history.replaceState(null, "", href);
+            }, 400);
+          }
+          return;
+        }
+        closeModal();
+      });
+    });
   }
 
   document.addEventListener("keydown", (e) => {
